@@ -1,0 +1,11 @@
+.LoginButt {
+    color : white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.LoginButt:hover {
+    background-color: #2869a2
+}
