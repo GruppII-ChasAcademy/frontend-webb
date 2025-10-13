@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { RouterProvider } from "react-router-dom";
+import './styles/global.css'
 
 import { store } from "./store";     // <- import från nya store.ts
 import router from "./routes";       // din router-fil

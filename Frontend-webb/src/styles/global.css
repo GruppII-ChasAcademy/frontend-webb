@@ -9,3 +9,490 @@
 .LoginButt:hover {
     background-color: #2869a2
 }
+/* ==========================================
+   DASHBOARD STYLES
+   ========================================== */
+
+/* Container */
+.dashboard-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #0f172a, #1e293b, #0f172a);
+}
+
+/* Header */
+.dashboard-header {
+  background-color: #1e293b;
+  border-bottom: 1px solid #334155;
+}
+
+.dashboard-header-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard-title {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.notification-button {
+  color: #cbd5e1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.2s;
+}
+
+.notification-button:hover {
+  color: white;
+}
+
+/* Main Content */
+.dashboard-main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.dashboard-layout {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Sidebar */
+.dashboard-sidebar {
+  width: 16rem;
+  flex-shrink: 0;
+}
+
+.sidebar-nav {
+  background-color: rgba(30, 41, 59, 0.5);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.sidebar-nav > * + * {
+  margin-top: 0.5rem;
+}
+
+.menu-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: transparent;
+}
+
+.menu-item-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.menu-item-inactive {
+  color: #cbd5e1;
+}
+
+.menu-item-inactive:hover {
+  background-color: rgba(51, 65, 85, 0.5);
+  color: white;
+}
+
+.menu-item-active {
+  background-color: #334155;
+  color: white;
+}
+
+.menu-item-count {
+  font-size: 0.75rem;
+  background-color: #475569;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.menu-item-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Cards Grid */
+.cards-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* Temperature Card */
+.temperature-card {
+  background-color: rgba(30, 41, 59, 0.5);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+.temperature-card-title {
+  color: #cbd5e1;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.temperature-card-value {
+  color: white;
+  font-size: 1.875rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.temperature-card-trend {
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.trend-positive {
+  color: #4ade80;
+}
+
+.trend-negative {
+  color: #f87171;
+}
+
+/* Chart */
+.chart-container {
+  height: 10rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.chart-bar {
+  flex: 1;
+  background-color: #475569;
+  border-radius: 0.25rem 0.25rem 0 0;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.chart-bar:hover {
+  background-color: #64748b;
+}
+
+.chart-labels {
+  display: flex;
+  justify-content: space-between;
+  color: #94a3b8;
+  font-size: 0.75rem;
+}
+
+/* Sponsors Footer */
+.sponsors-footer {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.sponsor-item {
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Loading State */
+.loading-container {
+  min-height: 100vh;
+  background-color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-text {
+  color: white;
+  font-size: 1.25rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+  
+  .dashboard-sidebar {
+    width: 100%;
+  }
+  
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .sponsors-footer {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .dashboard-header-content {
+    padding: 1rem;
+  }
+  
+  .dashboard-main {
+    padding: 1rem;
+  }
+}
+
+.dashboard-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #0f172a, #1e293b, #0f172a);
+}
+
+
+.dashboard-header {
+  background-color: #1e293b;
+  border-bottom: 1px solid #334155;
+}
+
+.dashboard-header-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard-title {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.notification-button {
+  color: #cbd5e1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.2s;
+}
+
+.notification-button:hover {
+  color: white;
+}
+
+
+.dashboard-main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.dashboard-layout {
+  display: flex;
+  gap: 1.5rem;
+}
+
+
+.dashboard-sidebar {
+  width: 16rem;
+  flex-shrink: 0;
+}
+
+.sidebar-nav {
+  background-color: rgba(30, 41, 59, 0.5);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.sidebar-nav > * + * {
+  margin-top: 0.5rem;
+}
+
+.menu-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: transparent;
+}
+
+.menu-item-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.menu-item-inactive {
+  color: #cbd5e1;
+}
+
+.menu-item-inactive:hover {
+  background-color: rgba(51, 65, 85, 0.5);
+  color: white;
+}
+
+.menu-item-active {
+  background-color: #334155;
+  color: white;
+}
+
+.menu-item-count {
+  font-size: 0.75rem;
+  background-color: #475569;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.menu-item-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.cards-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+
+.temperature-card {
+  background-color: rgba(30, 41, 59, 0.5);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+.temperature-card-title {
+  color: #cbd5e1;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.temperature-card-value {
+  color: white;
+  font-size: 1.875rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.temperature-card-trend {
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.trend-positive {
+  color: #4ade80;
+}
+
+.trend-negative {
+  color: #f87171;
+}
+
+
+.chart-container {
+  height: 10rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.chart-bar {
+  flex: 1;
+  background-color: #475569;
+  border-radius: 0.25rem 0.25rem 0 0;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.chart-bar:hover {
+  background-color: #64748b;
+}
+
+.chart-labels {
+  display: flex;
+  justify-content: space-between;
+  color: #94a3b8;
+  font-size: 0.75rem;
+}
+
+
+.sponsors-footer {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.sponsor-item {
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Loading State */
+.loading-container {
+  min-height: 100vh;
+  background-color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-text {
+  color: white;
+  font-size: 1.25rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+  
+  .dashboard-sidebar {
+    width: 100%;
+  }
+  
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .sponsors-footer {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .dashboard-header-content {
+    padding: 1rem;
+  }
+  
+  .dashboard-main {
+    padding: 1rem;
+  }
+}
