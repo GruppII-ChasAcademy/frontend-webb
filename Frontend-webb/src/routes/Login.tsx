@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { AppDispatch, RootState } from "../store";
@@ -9,33 +9,25 @@ import LoginButton from "../components/LogInButton";
 const Login: React.FC = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    
+
     const dispatch = useDispatch<AppDispatch>();
     const navigate = useNavigate();
-    
-    const { loading, error, user } = useSelector((state: RootState) => state.auth);
 
-    // Redirect om användaren redan är inloggad
-    useEffect(() => {
-        if (user) {
-            navigate("/dashboard");
-        }
-    }, [user, navigate]);
+    const { loading, error } = useSelector((state: RootState) => state.auth);
 
-    
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
-        
-        // Validering
-        if (!email || !password) {
-            return;
-        }
+
+        if (!email || !password) return;
 
         try {
+            // Kör login thunk och unwrap för att få payload eller throw error
             await dispatch(loginUser({ email, password })).unwrap();
-            // Om login lyckas kommer useEffect att hantera redirect
+
+            // Om login lyckas, navigera till dashboard
+            navigate("/dashboard");
         } catch (err) {
-            // Error hanteras av Redux state
+            // Error hanteras av Redux state, men kan loggas här
             console.error("Login failed:", err);
         }
     };
@@ -66,12 +58,8 @@ const Login: React.FC = () => {
                         required
                         disabled={loading}
                     />
-                    
-                    {error && (
-                        <div className="error-message">
-                            {error}
-                        </div>
-                    )}
+
+                    {error && <div className="error-message">{error}</div>}
 
                     <a href="#" className="forgot-password">
                         Forgot Password?
@@ -82,7 +70,6 @@ const Login: React.FC = () => {
                     </LoginButton>
                 </form>
 
-                {/* Hjälptext för test-inloggning */}
                 <div style={{ marginTop: '20px', fontSize: '12px', color: '#666' }}>
                     <p>Test credentials:</p>
                     <p>Email: test@example.com</p>
