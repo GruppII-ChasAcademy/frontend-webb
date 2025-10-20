@@ -21,3 +21,5 @@ export default tseslint.config([
     },
   },
 ])
+
+// eslint:@typescript-eslint/no-explicit-any: "off"

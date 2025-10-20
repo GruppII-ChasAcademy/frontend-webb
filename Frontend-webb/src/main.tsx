@@ -4,8 +4,8 @@ import { Provider } from "react-redux";
 import { RouterProvider } from "react-router-dom";
 import './styles/global.css'
 
-import { store } from "./store";     // <- import från nya store.ts
-import router from "./routes";       // din router-fil
+import { store } from "./store";
+import router from "./routes";
 
 const rootEl = document.getElementById("root") as HTMLElement;
 
@@ -16,4 +16,3 @@ ReactDOM.createRoot(rootEl).render(
     </Provider>
   </React.StrictMode>
 );
-

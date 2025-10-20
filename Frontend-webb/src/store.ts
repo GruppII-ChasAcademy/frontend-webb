@@ -1,11 +1,11 @@
-// src/store.ts
 import { configureStore } from "@reduxjs/toolkit";
+import authReducer from "./authSlices";
 
-// just nu tom reducer, du kan lägga till dina slices här senare
 export const store = configureStore({
-  reducer: {},
+    reducer: {
+        auth: authReducer,
+    },
 });
 
-// typer för TypeScript
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

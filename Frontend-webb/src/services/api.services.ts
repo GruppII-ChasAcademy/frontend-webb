@@ -1,10 +1,7 @@
-// src/services/api.service.ts
 import { DashboardData } from "../types/dashboard.types";
 
-export const api= {
+export const api = {
   async getDashboardData(): Promise<DashboardData> {
-
-
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({
@@ -28,22 +25,37 @@ export const api= {
             warnings: 5,
           },
         });
-      }, 800); 
+      }, 800);
     });
   },
 
-  
-  // Exempel: login (för senare)
-
-  async loginUser(email: string, password: string): Promise<{ token: string }> {
+  async loginUser(
+    email: string,
+    password: string
+  ): Promise<{ token: string; user: { id: string; email: string; name: string } }> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (email === "test@example.com" && password === "1234") {
-          resolve({ token: "fake-jwt-token-123" });
+        if (email === "test@example.com" && password === "chas") {
+          resolve({
+            token: "fake-jwt-token-123",
+            user: {
+              id: "user-123",
+              email: email,
+              name: "Test User",
+            },
+          });
         } else {
           reject(new Error("Fel användarnamn eller lösenord"));
         }
       }, 600);
+    });
+  },
+
+  async logoutUser(): Promise<void> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, 200);
     });
   },
 };

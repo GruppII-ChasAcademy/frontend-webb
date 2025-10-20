@@ -1,21 +1,28 @@
 import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { store } from './store';
-import DashboardPage from './components/DashboardPage';
+import Dashboard from './components/dashboard/dashboard';
+import Login from './routes/Login';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          {/* Root path (/) redirectar automatiskt till /dashboard */}
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          {/* Login route */}
+          <Route path="/login" element={<Login />} />
           
-          {/* Dashboard route - din sida */}
-          <Route path="/dashboard" element={<DashboardPage />} />
-          
-          {/* Din kollega lägger till /login route här senare */}
-          {/* <Route path="/login" element={<LoginPage />} /> */}
+          {/* Protected Dashboard route */}
+          <Route 
+            path="/dashboard" 
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            } />
+          {/* Catch all - redirectar till login */}
+          <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </BrowserRouter>
     </Provider>

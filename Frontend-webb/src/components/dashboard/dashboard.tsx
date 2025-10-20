@@ -4,7 +4,7 @@ import { api } from "../../services/api.services";
 import { DashboardData } from "../../types/dashboard.types";
 import TemperatureCard from "./temperatureCard";
 import PackageStatsCard from "./packageStatsCard";
-import "../styles/dashboard.css";
+import "../../styles/global.css";
 
 const Dashboard = () => {
   const [data, setData] = useState<DashboardData | null>(null);
