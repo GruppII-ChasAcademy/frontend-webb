@@ -4,7 +4,7 @@ import React from "react";
 const Navbar = () => {
   return (
     <header className="dashboard-header">
-      <h1>Grupp || Chas academy</h1>
+      <h1>Grupp 2 Chas academy</h1>
       <button className="notification-btn" aria-label="Notifications">
         🔔
       </button>

@@ -192,26 +192,90 @@ body {
   line-height: 1.6;
   color: var(--color-subtext);
 }
+/* =========================
+   CHART - EXAKT DESIGN SOM MOCKUP
+========================= */
 
-/* Chart Component */
+.chart-wrapper {
+  background-color: rgba(30, 41, 59, 0.7); /* mörk bakgrund */
+  border: 1px solid rgba(148, 163, 184, 0.2); /* subtil ram */
+  border-radius: 0.75rem;
+  padding: 1rem 1rem 0.5rem 1rem;
+  margin-top: 1rem;
+}
+
 .chart-container {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 0.25rem;
-  height: 120px;
-  margin-top: 1rem;
+  height: 140px;
+  position: relative;
+  padding: 0 0.5rem;
 }
 
 .chart-bar {
   flex: 1;
-  background-color: #475569;
-  border-radius: 0.25rem 0.25rem 0 0;
-  transition: background-color var(--transition);
+  margin: 0 3px;
+  position: relative;
+  height: 100%;
+  background: none;
 }
 
-.chart-bar:hover {
-  background-color: #64748b;
+.chart-bar::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to top, #60a5fa, #93c5fd);
+  border-radius: 4px;
+  transform: translateX(-50%);
+  opacity: 0.8;
+}
+
+/* Labels under */
+.chart-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+/* =========================
+   TEMPERATURE CARD JUSTERING
+========================= */
+.temperature-card {
+  background-color: rgba(30, 41, 59, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+}
+
+.temperature-card:hover {
+  transform: translateY(-3px);
+}
+
+.temperature-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.75rem;
+}
+
+.temperature-card p {
+  margin: 0.25rem 0;
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+.trend-up {
+  color: #4ade80;
+  font-weight: 600;
 }
 
 /* Loading State */
