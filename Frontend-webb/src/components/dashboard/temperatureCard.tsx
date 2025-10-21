@@ -1,6 +1,6 @@
 // src/components/TemperatureCard.tsx
 import { TemperatureData } from "../../types/dashboard.types";
-import Chart from "../chart";
+import Chart from "./chart";
 
 interface Props {
   title: string;

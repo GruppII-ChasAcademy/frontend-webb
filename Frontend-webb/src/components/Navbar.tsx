@@ -1,10 +1,15 @@
-import { Link } from "react-router-dom";
+// src/components/Navbar.tsx
+import React from "react";
 
-export default function Navbar() {
+const Navbar = () => {
   return (
-    <nav style={{ padding: "1rem", background: "#eee" }}>
-      <Link to="/">Hem</Link>{" | "}
-      <Link to="/about">Om</Link>
-    </nav>
+    <header className="dashboard-header">
+      <h1>Grupp || Chas academy</h1>
+      <button className="notification-btn" aria-label="Notifications">
+        🔔
+      </button>
+    </header>
   );
-}
+};
+
+export default Navbar;

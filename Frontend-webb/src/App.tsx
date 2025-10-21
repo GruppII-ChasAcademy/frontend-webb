@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { store } from './store';
-import Dashboard from './components/dashboard/dashboard';
+import Dashboard from './routes/dashboard';
 import Login from './routes/Login';
 import ProtectedRoute from './components/ProtectedRoute';
 

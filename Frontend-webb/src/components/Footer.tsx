@@ -1,7 +1,16 @@
-export default function Footer() {
+// src/components/Footer.tsx
+import React from "react";
+
+const Footer = () => {
   return (
-    <footer style={{ padding: "1rem", background: "#eee", marginTop: "2rem" }}>
-      <small>© 2025 Chas Advance</small>
+    <footer className="dashboard-footer">
+      <span>Sponsor</span>
+      <span>Sponsor</span>
+      <span>Sponsor</span>
+      <span>Sponsor</span>
+      <span>Sponsor</span>
     </footer>
   );
-}
+};
+
+export default Footer;
