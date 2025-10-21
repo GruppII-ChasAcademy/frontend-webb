@@ -1,17 +1,19 @@
-import React from "react";
 
-interface LogInButtonProps {
-  type?: "button" | "submit" | "reset";
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  onClick?: () => void;
+  loading?: boolean;
 }
 
-const LogInButton: React.FC<LogInButtonProps> = ({ type = "button", children, onClick }) => {
+const LoginButton = ({ children, loading = false, ...props }: Props) => {
   return (
-    <button type={type} onClick={onClick} className="login-button">
-      {children}
+    <button
+      className={`LoginButt ${loading ? "loading" : ""}`}
+      disabled={loading}
+      {...props}
+    >
+      {!loading && children}
     </button>
   );
 };
 
-export default LogInButton;
+export default LoginButton;
