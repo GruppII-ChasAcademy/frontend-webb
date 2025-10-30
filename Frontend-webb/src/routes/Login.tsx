@@ -7,32 +7,27 @@ import "../styles/global.css";
 import LoginButton from "../components/LogInButton";
 
 const Login: React.FC = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
+  const { loading, error } = useSelector((state: RootState) => state.auth);
 
-    const dispatch = useDispatch<AppDispatch>();
-    const navigate = useNavigate();
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !password) return;
 
-    const { loading, error } = useSelector((state: RootState) => state.auth);
+ try {
+  const result = await dispatch(loginUser({ email, password })).unwrap();
+  console.log("Inloggad user:", result.user);
 
-    const handleLogin = async (e: React.FormEvent) => {
-        e.preventDefault();
-
-        if (!email || !password) return;
-
-        try {
-            // Kör login thunk och unwrap för att få payload eller throw error
-            await dispatch(loginUser({ email, password })).unwrap();
-
-            // Om login lyckas, navigera till dashboard
-            navigate("/dashboard");
-        } catch (err) {
-            // Error hanteras av Redux state, men kan loggas här
-            console.error("Login failed:", err);
-        }
-    };
-
-    return (
+  // ALLA går till dashboard efter login
+  navigate("/dashboard");
+} catch (err) {
+  console.error("Login failed:", err);
+}
+  };
+   return (
         <div className="login-container">
             <div className="login-box">
                 <h1 className="login-title">Grupp || Chas Academy</h1>

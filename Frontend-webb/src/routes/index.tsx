@@ -1,6 +1,7 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import Login from "../routes/Login";
 import Dashboard from "./dashboard";
+import Admin from "../routes/Admin";
 import ProtectedRoute from "../components/ProtectedRoute";
 
 const router = createBrowserRouter([
@@ -17,11 +18,19 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: "/admin",
+    element: (
+      <ProtectedRoute role="admin">
+        <Admin />
+      </ProtectedRoute>
+    ),
+  },
+  {
     path: "/",
     element: <Navigate to="/dashboard" replace />,
   },
   {
-    path: "*",
+    path: "/",
     element: <Navigate to="/login" replace />,
   },
 ]);

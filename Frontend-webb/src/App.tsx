@@ -1,27 +1,34 @@
-import { Provider } from 'react-redux';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { store } from './store';
-import Dashboard from './routes/dashboard';
-import Login from './routes/Login';
-import ProtectedRoute from './components/ProtectedRoute';
+import { Provider } from "react-redux";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { store } from "./store";
+import Dashboard from "./routes/dashboard";
+import Login from "./routes/Login";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Admin from "./routes/Admin";
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          {/* Login route */}
           <Route path="/login" element={<Login />} />
-          
-          {/* Protected Dashboard route */}
-          <Route 
-            path="/dashboard" 
+          <Route
+            path="/dashboard"
             element={
               <ProtectedRoute>
                 <Dashboard />
               </ProtectedRoute>
-            } />
-          {/* Catch all - redirectar till login */}
+            }
+          />
+          {/* Admin-route endast för admin */}
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute role="admin">
+                <Admin />
+              </ProtectedRoute>
+            }
+          />
           <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </BrowserRouter>
