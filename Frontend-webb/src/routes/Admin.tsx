@@ -14,26 +14,28 @@ const Admin: React.FC = () => {
   });
 
   // Hämta alla användare
+  const fetchUsers = async () => {
+    setLoading(true);
+    const data = await api.getUsers();
+    setUsers(data);
+    setLoading(false);
+  };
+
   useEffect(() => {
-    const fetchUsers = async () => {
-      const data = await api.getUsers();
-      setUsers(data);
-      setLoading(false);
-    };
     fetchUsers();
   }, []);
 
   // Skapa ny användare
   const handleCreateUser = async () => {
-    const created = await api.createUser(newUser);
-    setUsers((prev) => [...prev, created]);
+    await api.createUser(newUser); // Skapar i API
+    await fetchUsers(); // Hämtar uppdaterad lista från API
     setNewUser({ name: "", email: "", role: "user" });
   };
 
   // Ta bort användare
   const handleDeleteUser = async (id: string) => {
     await api.deleteUser(id);
-    setUsers((prev) => prev.filter((u) => u.id !== id));
+    await fetchUsers();
   };
 
   if (loading) return <p className="admin-loading">Laddar användare...</p>;
